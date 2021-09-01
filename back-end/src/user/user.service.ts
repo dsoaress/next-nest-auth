@@ -26,17 +26,6 @@ export class UserService {
         email,
         password: hashSync(password, 8),
         role
-      },
-      select: {
-        id: true,
-        name: true,
-        email: true,
-        password: false,
-        role: true,
-        active: true,
-        verified: true,
-        createdAt: true,
-        updatedAt: true
       }
     })
 
@@ -44,19 +33,7 @@ export class UserService {
   }
 
   async findAll() {
-    const users = await this.prisma.user.findMany({
-      select: {
-        id: true,
-        name: true,
-        email: true,
-        password: false,
-        role: true,
-        active: true,
-        verified: true,
-        createdAt: true,
-        updatedAt: true
-      }
-    })
+    const users = await this.prisma.user.findMany()
 
     return users
   }
@@ -101,17 +78,6 @@ export class UserService {
       },
       data: {
         ...updateUserDto
-      },
-      select: {
-        id: true,
-        name: true,
-        email: true,
-        password: false,
-        role: true,
-        active: true,
-        verified: true,
-        createdAt: true,
-        updatedAt: true
       }
     })
 
