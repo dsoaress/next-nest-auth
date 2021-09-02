@@ -4,16 +4,9 @@ import { parseCookies } from 'nookies'
 
 import { ProfileForm } from '../components/ProfileForm'
 import { setupAPIClient } from '../services/api'
+import { Role } from '../types/Role'
+import { User } from '../types/User'
 import { authenticatedUserRoute } from '../utils/authenticatedUserRoute'
-
-type Role = 'ADMIN' | 'USER'
-
-type User = {
-  id: string
-  name: string
-  email: string
-  role: Role
-}
 
 type ProfilePageProps = {
   user: User

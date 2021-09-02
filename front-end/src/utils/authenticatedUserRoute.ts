@@ -2,15 +2,11 @@ import decode from 'jwt-decode'
 import { GetServerSideProps, GetServerSidePropsContext } from 'next'
 import { parseCookies } from 'nookies'
 
-import { Role } from './retrieveUserProfile'
+import { Role } from '../types/Role'
 import { validateUserPermissions } from './validateUserPermissions'
 
 type Options = {
   roles: Role[]
-}
-
-type User = {
-  role: Role
 }
 
 export function authenticatedUserRoute(fn: GetServerSideProps, options?: Options) {
@@ -26,11 +22,11 @@ export function authenticatedUserRoute(fn: GetServerSideProps, options?: Options
       }
     }
 
-    const user = decode<User>(accessToken)
+    const { role: userRole } = decode<{ role: Role }>(accessToken)
 
     if (options) {
       const userHasValidPermissions = validateUserPermissions({
-        user,
+        userRole,
         roles: options.roles
       })
 

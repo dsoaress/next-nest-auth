@@ -1,7 +1,6 @@
 import { useUser } from '../contexts/UserContext'
+import { Role } from '../types/Role'
 import { validateUserPermissions } from '../utils/validateUserPermissions'
-
-type Role = 'ADMIN' | 'USER'
 
 type UseCanPros = {
   roles: Role[]
@@ -15,7 +14,7 @@ export function useCan({ roles }: UseCanPros) {
   }
 
   const userHasValidPermissions = validateUserPermissions({
-    user,
+    userRole: user.role,
     roles
   })
 

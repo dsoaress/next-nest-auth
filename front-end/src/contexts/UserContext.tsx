@@ -1,5 +1,4 @@
 import { useToast } from '@chakra-ui/react'
-import { AxiosError } from 'axios'
 import { useRouter } from 'next/router'
 import { parseCookies } from 'nookies'
 import { createContext, ReactNode, useContext, useEffect, useState } from 'react'
@@ -8,12 +7,13 @@ import { ProfileFormData } from '../components/ProfileForm'
 import { SignInFormData } from '../components/SignInForm'
 import { SignUpFormData } from '../components/SignUpForm'
 import { api } from '../services/api'
+import { User } from '../types/User'
 import { destroyCookies } from '../utils/destroyCookies'
-import { retrieveUserProfile, UserProfile } from '../utils/retrieveUserProfile'
+import { retrieveUserProfile } from '../utils/retrieveUserProfile'
 import { setCookies } from '../utils/setCookies'
 
 type UserContextData = {
-  user: UserProfile
+  user: User | null
   signIn: (data: SignInFormData) => Promise<void>
   signUp: (data: SignUpFormData) => Promise<void>
   signOut: () => void
@@ -26,7 +26,7 @@ const UserContext = createContext({} as UserContextData)
 export function UserProvider({ children }: { children: ReactNode }) {
   const router = useRouter()
   const toast = useToast()
-  const [user, setUser] = useState<UserProfile>(null)
+  const [user, setUser] = useState<User | null>(null)
   const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
@@ -137,10 +137,7 @@ export function UserProvider({ children }: { children: ReactNode }) {
     console.log(profileFormData)
 
     try {
-      await api.patch<UserProfile>(
-        user.role === 'ADMIN' ? `users/${userId}` : 'me',
-        profileFormData
-      )
+      await api.patch<User>(user.role === 'ADMIN' ? `users/${userId}` : 'me', profileFormData)
 
       toast({
         position: 'bottom-left',

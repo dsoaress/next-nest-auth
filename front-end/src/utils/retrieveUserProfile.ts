@@ -1,19 +1,11 @@
 import { api } from '../services/api'
-
-export type Role = 'ADMIN' | 'USER'
-
-export type UserProfile = {
-  id: string
-  name: string
-  email: string
-  role: Role
-} | null
+import { User } from '../types/User'
 
 export async function retrieveUserProfile(userId?: string) {
-  let user: UserProfile = null
+  let user: User | null = null
 
   try {
-    const { data } = await api.get<UserProfile>(userId ? `users/${userId}` : 'me')
+    const { data } = await api.get<User>(userId ? `users/${userId}` : 'me')
 
     user = data
   } catch (error) {

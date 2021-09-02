@@ -1,8 +1,7 @@
 import { ReactNode } from 'react'
 
 import { useCan } from '../hooks/useCan'
-
-type Role = 'ADMIN' | 'USER'
+import { Role } from '../types/Role'
 
 type CanProps = {
   children: ReactNode

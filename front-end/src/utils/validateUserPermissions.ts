@@ -1,18 +1,14 @@
-import { Role } from './retrieveUserProfile'
-
-type User = {
-  role: Role
-}
+import { Role } from '../types/Role'
 
 type ValidateUserPermissionsParams = {
-  user: User
+  userRole: Role
   roles?: Role[]
 }
 
-export function validateUserPermissions({ user, roles }: ValidateUserPermissionsParams) {
+export function validateUserPermissions({ userRole, roles }: ValidateUserPermissionsParams) {
   if (roles && roles.length > 0) {
     const hasPermission = roles.some(role => {
-      return user.role.includes(role)
+      return userRole.includes(role)
     })
 
     if (!hasPermission) {
