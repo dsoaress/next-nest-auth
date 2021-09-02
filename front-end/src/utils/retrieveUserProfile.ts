@@ -1,10 +1,12 @@
 import { api } from '../services/api'
 
+export type Role = 'ADMIN' | 'USER'
+
 export type UserProfile = {
   id: string
   name: string
   email: string
-  role: string
+  role: Role
 } | null
 
 export async function retrieveUserProfile() {
