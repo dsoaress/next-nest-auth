@@ -3,6 +3,7 @@ import type { AppProps } from 'next/app'
 import Head from 'next/head'
 
 import { Layout } from '../components/Layout'
+import { UserProvider } from '../contexts/UserContext'
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -10,9 +11,11 @@ export default function App({ Component, pageProps }: AppProps) {
       <Head>
         <title>JWT authentication with Next and Nest</title>
       </Head>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <UserProvider>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </UserProvider>
     </ChakraProvider>
   )
 }
