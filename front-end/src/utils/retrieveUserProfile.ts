@@ -9,16 +9,16 @@ export type UserProfile = {
   role: Role
 } | null
 
-export async function retrieveUserProfile() {
-  let userProfile: UserProfile = null
+export async function retrieveUserProfile(userId?: string) {
+  let user: UserProfile = null
 
   try {
-    const { data } = await api.get<UserProfile>('me')
+    const { data } = await api.get<UserProfile>(userId ? `users/${userId}` : 'me')
 
-    userProfile = data
+    user = data
   } catch (error) {
     console.log(error)
   }
 
-  return userProfile
+  return user
 }

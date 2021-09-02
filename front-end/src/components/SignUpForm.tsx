@@ -1,11 +1,9 @@
-import { Heading, Text, useToast } from '@chakra-ui/react'
+import { Heading, Text } from '@chakra-ui/react'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { useRouter } from 'next/router'
-import { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import * as yup from 'yup'
 
-import { api } from '../services/api'
+import { useUser } from '../contexts/UserContext'
 import { Button } from './Button'
 import { Form } from './Form'
 import { Input } from './Input'
@@ -18,52 +16,22 @@ export type SignUpFormData = {
 }
 
 export function SignUpForm() {
-  const router = useRouter()
-  const toast = useToast()
-  const [isLoading, setIsLoading] = useState(false)
+  const { signUp, isLoading } = useUser()
 
-  const SignUpFormSchema = yup.object().shape({
+  const signUpFormSchema = yup.object().shape({
     name: yup.string().required(),
     email: yup.string().required().email(),
     password: yup.string().required()
   })
 
   const { register, handleSubmit, formState } = useForm({
-    resolver: yupResolver(SignUpFormSchema)
+    resolver: yupResolver(signUpFormSchema)
   })
 
   const { errors } = formState
 
-  const handleSignUp: SubmitHandler<SignUpFormData> = async ({ name, email, password }) => {
-    setIsLoading(true)
-
-    try {
-      await api.post('users', {
-        name,
-        email,
-        password
-      })
-
-      await router.push('/auth')
-    } catch (error) {
-      if (error.response.status === 400) {
-        toast({
-          position: 'bottom-left',
-          description: 'A user with this email address has already been registered.',
-          status: 'error',
-          duration: 4000
-        })
-      } else {
-        toast({
-          position: 'bottom-left',
-          description: 'Hmm... Something wrong happened in our side. Please try again.',
-          status: 'error',
-          duration: 4000
-        })
-      }
-    }
-
-    setIsLoading(false)
+  const handleSignUp: SubmitHandler<SignUpFormData> = async values => {
+    await signUp(values)
   }
 
   return (
