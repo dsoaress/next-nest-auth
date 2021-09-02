@@ -72,6 +72,18 @@ export class UserService {
       delete updateUserDto.oldPassword
     }
 
+    const emailExists = await this.prisma.user.findUnique({
+      where: {
+        email: updateUserDto.email
+      }
+    })
+
+    if (emailExists) {
+      if (user.email !== updateUserDto.email) {
+        throw new BadRequestException('Email already registered')
+      }
+    }
+
     const updatedUser = await this.prisma.user.update({
       where: {
         id
