@@ -1,7 +1,7 @@
 import { Heading } from '@chakra-ui/react'
 import { GetServerSideProps } from 'next'
 
-import { authenticatedUserRoute } from '../utils/authenticatedUserRoute'
+import { authenticatedUserRoute } from '@/utils/authenticatedUserRoute'
 
 export default function DashboardPage() {
   return (

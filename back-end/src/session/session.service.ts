@@ -8,7 +8,8 @@ import { JwtService } from '@nestjs/jwt'
 import { compare } from 'bcryptjs'
 import dayjs from 'dayjs'
 
-import { PrismaService } from '../prisma/prisma.service'
+import { PrismaService } from '@/prisma/prisma.service'
+
 import { CreateSessionDto } from './dto/create-session.dto'
 import { RefreshSessionDto } from './dto/refresh-session.dto'
 

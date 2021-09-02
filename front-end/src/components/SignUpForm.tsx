@@ -3,11 +3,11 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import * as yup from 'yup'
 
-import { useUser } from '../contexts/UserContext'
-import { Button } from './Button'
-import { Form } from './Form'
-import { Input } from './Input'
-import { Link } from './Link'
+import { Button } from '@/components/Button'
+import { Form } from '@/components/Form'
+import { Input } from '@/components/Input'
+import { Link } from '@/components/Link'
+import { useUser } from '@/contexts/UserContext'
 
 export type SignUpFormData = {
   name: string

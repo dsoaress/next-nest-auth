@@ -2,8 +2,8 @@ import { ChakraProvider } from '@chakra-ui/react'
 import { AppProps } from 'next/app'
 import Head from 'next/head'
 
-import { Layout } from '../components/Layout'
-import { UserProvider } from '../contexts/UserContext'
+import { Layout } from '@/components/Layout'
+import { UserProvider } from '@/contexts/UserContext'
 
 export default function App({ Component, pageProps }: AppProps) {
   return (

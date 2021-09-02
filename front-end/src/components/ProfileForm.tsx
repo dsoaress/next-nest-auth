@@ -4,12 +4,12 @@ import { useRouter } from 'next/router'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import * as yup from 'yup'
 
-import { useUser } from '../contexts/UserContext'
-import { Button } from './Button'
-import { Can } from './Can'
-import { Form } from './Form'
-import { Input } from './Input'
-import { Select } from './Select'
+import { Button } from '@/components/Button'
+import { Can } from '@/components/Can'
+import { Form } from '@/components/Form'
+import { Input } from '@/components/Input'
+import { Select } from '@/components/Select'
+import { useUser } from '@/contexts/UserContext'
 
 type Role = 'ADMIN' | 'USER'
 

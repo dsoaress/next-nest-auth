@@ -1,7 +1,7 @@
 import { GetServerSidePropsContext } from 'next'
 import { setCookie } from 'nookies'
 
-import { api } from '../services/api'
+import { api } from '@/services/api'
 
 type SetCookiesProps = {
   ctx?: GetServerSidePropsContext

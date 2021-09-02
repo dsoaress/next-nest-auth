@@ -9,8 +9,9 @@ import {
   ValidationPipe
 } from '@nestjs/common'
 
-import { Public } from '../common/decorators/public-route.decorator'
-import { LocalAuthGuard } from '../common/guards/local-auth.guard'
+import { Public } from '@/decorators/public-route.decorator'
+import { LocalAuthGuard } from '@/guards/local-auth.guard'
+
 import { CreateSessionDto } from './dto/create-session.dto'
 import { RefreshSessionDto } from './dto/refresh-session.dto'
 import { SessionService } from './session.service'

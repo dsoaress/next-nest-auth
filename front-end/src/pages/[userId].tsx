@@ -2,11 +2,11 @@ import decode from 'jwt-decode'
 import { GetServerSideProps } from 'next'
 import { parseCookies } from 'nookies'
 
-import { ProfileForm } from '../components/ProfileForm'
-import { setupAPIClient } from '../services/api'
-import { Role } from '../types/Role'
-import { User } from '../types/User'
-import { authenticatedUserRoute } from '../utils/authenticatedUserRoute'
+import { ProfileForm } from '@/components/ProfileForm'
+import { setupAPIClient } from '@/services/api'
+import { Role } from '@/types/Role'
+import { User } from '@/types/User'
+import { authenticatedUserRoute } from '@/utils/authenticatedUserRoute'
 
 type ProfilePageProps = {
   user: User

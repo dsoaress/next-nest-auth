@@ -1,4 +1,4 @@
-import { Role } from './Role'
+import { Role } from '@/types/Role'
 
 export type User = {
   id: string

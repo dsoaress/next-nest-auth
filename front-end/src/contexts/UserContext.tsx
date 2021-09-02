@@ -3,14 +3,14 @@ import { useRouter } from 'next/router'
 import { parseCookies } from 'nookies'
 import { createContext, ReactNode, useContext, useEffect, useState } from 'react'
 
-import { ProfileFormData } from '../components/ProfileForm'
-import { SignInFormData } from '../components/SignInForm'
-import { SignUpFormData } from '../components/SignUpForm'
-import { api } from '../services/api'
-import { User } from '../types/User'
-import { destroyCookies } from '../utils/destroyCookies'
-import { retrieveUserProfile } from '../utils/retrieveUserProfile'
-import { setCookies } from '../utils/setCookies'
+import { ProfileFormData } from '@/components/ProfileForm'
+import { SignInFormData } from '@/components/SignInForm'
+import { SignUpFormData } from '@/components/SignUpForm'
+import { api } from '@/services/api'
+import { User } from '@/types/User'
+import { destroyCookies } from '@/utils/destroyCookies'
+import { retrieveUserProfile } from '@/utils/retrieveUserProfile'
+import { setCookies } from '@/utils/setCookies'
 
 type UserContextData = {
   user: User | null

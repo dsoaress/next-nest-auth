@@ -1,8 +1,8 @@
 import { Heading, Stack, Text } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 
-import { Button } from '../components/Button'
-import { useUser } from '../contexts/UserContext'
+import { Button } from '@/components/Button'
+import { useUser } from '@/contexts/UserContext'
 
 export function Home() {
   const router = useRouter()

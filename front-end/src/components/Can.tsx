@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 
-import { useCan } from '../hooks/useCan'
-import { Role } from '../types/Role'
+import { useCan } from '@/hooks/useCan'
+import { Role } from '@/types/Role'
 
 type CanProps = {
   children: ReactNode

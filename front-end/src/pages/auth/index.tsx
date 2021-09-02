@@ -1,7 +1,7 @@
 import { GetServerSideProps } from 'next'
 
-import { SignInForm } from '../../components/SignInForm'
-import { guestUserRoute } from '../../utils/guestUserRoute'
+import { SignInForm } from '@/components/SignInForm'
+import { guestUserRoute } from '@/utils/guestUserRoute'
 
 export default function SignInPage() {
   return <SignInForm />

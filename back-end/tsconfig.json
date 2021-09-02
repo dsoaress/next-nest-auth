@@ -1,5 +1,13 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/decorators/*": ["./src/common/decorators/*"],
+      "@/filters/*": ["./src/common/filters/*"],
+      "@/guards/*": ["./src/common/guards/*"],
+      "@/pipes/*": ["./src/common/pipes/*"],
+      "@/prisma/*": ["./src/prisma/*"]
+    },
     "module": "commonjs",
     "declaration": true,
     "removeComments": true,
@@ -9,7 +17,6 @@
     "target": "es2017",
     "sourceMap": true,
     "outDir": "./dist",
-    "baseUrl": "./",
     "incremental": true,
     "skipLibCheck": true,
     "strictNullChecks": false,

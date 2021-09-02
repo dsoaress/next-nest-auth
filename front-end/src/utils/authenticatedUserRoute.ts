@@ -2,8 +2,8 @@ import decode from 'jwt-decode'
 import { GetServerSideProps, GetServerSidePropsContext } from 'next'
 import { parseCookies } from 'nookies'
 
-import { Role } from '../types/Role'
-import { validateUserPermissions } from './validateUserPermissions'
+import { Role } from '@/types/Role'
+import { validateUserPermissions } from '@/utils/validateUserPermissions'
 
 type Options = {
   roles: Role[]

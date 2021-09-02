@@ -3,8 +3,8 @@ import { GetServerSidePropsContext } from 'next'
 import router from 'next/router'
 import { parseCookies } from 'nookies'
 
-import { destroyCookies } from '../utils/destroyCookies'
-import { setCookies } from '../utils/setCookies'
+import { destroyCookies } from '@/utils/destroyCookies'
+import { setCookies } from '@/utils/setCookies'
 
 let isRefreshing = false
 let failedRequestsQueued: any[] = []

@@ -3,7 +3,8 @@ import { ConfigModule, ConfigService } from '@nestjs/config'
 import { JwtModule } from '@nestjs/jwt'
 import { PassportModule } from '@nestjs/passport'
 
-import { PrismaService } from '../prisma/prisma.service'
+import { PrismaService } from '@/prisma/prisma.service'
+
 import { SessionController } from './session.controller'
 import { SessionService } from './session.service'
 import { JwtStrategy } from './strategies/jwt.strategy'

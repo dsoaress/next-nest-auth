@@ -1,6 +1,6 @@
-import { useUser } from '../contexts/UserContext'
-import { Role } from '../types/Role'
-import { validateUserPermissions } from '../utils/validateUserPermissions'
+import { useUser } from '@/contexts/UserContext'
+import { Role } from '@/types/Role'
+import { validateUserPermissions } from '@/utils/validateUserPermissions'
 
 type UseCanPros = {
   roles: Role[]

@@ -11,9 +11,10 @@ import {
 } from '@nestjs/common'
 import { Role } from '@prisma/client'
 
-import { Public } from '../common/decorators/public-route.decorator'
-import { Roles } from '../common/decorators/roles.decorator'
-import { ParametersPipe } from '../common/pipes/parameters.pipe'
+import { Public } from '@/decorators/public-route.decorator'
+import { Roles } from '@/decorators/roles.decorator'
+import { ParametersPipe } from '@/pipes/parameters.pipe'
+
 import { CreateUserDto } from './dto/create-user.dto'
 import { UpdateUserDto } from './dto/update-user.dto'
 import { UserService } from './user.service'

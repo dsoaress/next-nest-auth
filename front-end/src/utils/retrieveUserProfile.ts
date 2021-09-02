@@ -1,5 +1,5 @@
-import { api } from '../services/api'
-import { User } from '../types/User'
+import { api } from '@/services/api'
+import { User } from '@/types/User'
 
 export async function retrieveUserProfile(userId?: string) {
   let user: User | null = null
